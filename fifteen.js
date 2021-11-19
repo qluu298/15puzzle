@@ -56,6 +56,7 @@
             div.id = "square_" + row + "_" + column;
             div.style.top = row * WIDTH + "px";
             div.style.left = column * WIDTH + "px";
+
             setEvents(div);
             document.getElementById("puzzlearea").appendChild(div);
         }
@@ -113,7 +114,7 @@
             if (win()) {
                 play();
                 end();
-                document.getElementById("output").innerHTML = "Congratulations! You win! <br>" + "You solved the puzzle in " + seconds + " seconds with " + moveTracker + " moves";
+                document.getElementById("output").innerHTML = "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "Congratulations! You win! <br>" + "You solved the puzzle in " + seconds + " seconds with " + moveTracker + " moves <br>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>" + "<span></span>";
                 console.log(moveTracker)
                 moveTracker = 0;
                 timeTracker = 0;
@@ -180,7 +181,6 @@
     }
 
 })();
-
 
 
 
