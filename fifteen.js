@@ -4,6 +4,10 @@
     let spaceRow = 3;
     let spaceColumn = 3;
     let WIDTH = 100;
+    let moveTracker = 0;
+    let timeTracker = 0;
+    var startTime, endTime;
+    var seconds;
     window.onload = function () {
         setSize();
         document.getElementById("select").onchange = changeSize;
@@ -100,10 +104,18 @@
 
     function helper() {
         if (moveable(this)) {
+            if (timeTracker == 0) {
+                start();
+                timeTracker = 1;
+            }
+            moveTracker += 1;
             makeAMove(this);
             if (win()) {
                 end();
-                document.getElementById("output").innerHTML = "Congratulations! You win!";
+                document.getElementById("output").innerHTML = "Congratulations! You win! <br>" + "You solved the puzzle in " + seconds + " seconds with " + moveTracker + " moves";
+                console.log(moveTracker)
+                moveTracker = 0;
+                timeTracker = 0;
             } else {
                 document.getElementById("output").innerHTML = "";
             }
@@ -145,24 +157,24 @@
         return true;
     }
 
+    function start() {
+        startTime = new Date();
+        console.log("time start here")
+    };
+
+    function end() {
+        endTime = new Date();
+        var timeDiff = endTime - startTime; //in ms
+        // strip the ms
+        timeDiff /= 1000;
+
+        // get seconds 
+        seconds = Math.round(timeDiff);
+        console.log(seconds + " seconds");
+    }
+
 })();
 
-var startTime, endTime;
 
-function start() {
-    startTime = new Date();
-    console.log(seconds + " seconds");
-};
-
-function end() {
-    endTime = new Date();
-    var timeDiff = endTime - startTime; //in ms
-    // strip the ms
-    timeDiff /= 1000;
-
-    // get seconds 
-    var seconds = Math.round(timeDiff);
-    console.log(seconds + " seconds");
-}
 
 
