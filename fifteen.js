@@ -111,6 +111,7 @@
             moveTracker += 1;
             makeAMove(this);
             if (win()) {
+                play();
                 end();
                 document.getElementById("output").innerHTML = "Congratulations! You win! <br>" + "You solved the puzzle in " + seconds + " seconds with " + moveTracker + " moves";
                 console.log(moveTracker)
@@ -171,6 +172,11 @@
         // get seconds 
         seconds = Math.round(timeDiff);
         console.log(seconds + " seconds");
+    }
+
+    function play() {
+        var audio = new Audio('applause-8.mp3');
+        audio.play();
     }
 
 })();
